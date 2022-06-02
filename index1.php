@@ -49,13 +49,6 @@ class PaymentController extends Controller
         // Get the payment token ID submitted by the form:
         $token = $_POST['stripeToken'];
 
-        $charge = \Stripe\Charge::create([
-            'amount' => $total * 100,
-            'currency' => 'usd',
-            'description' => 'Udemy Ecommerce Details dsadas',
-            'source' => $token,
-            'metadata' => ['order_id' => uniqid()],
-        ]);
 
         // if (Session::has('coupon')) {
         //     $subtotal = Session::get('coupon')[];
