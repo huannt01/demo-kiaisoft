@@ -55,22 +55,9 @@ class PaymentController extends Controller
         // }
 
         // insertGetId chèn vào Id và lấy id
-        $order_id = Order::insertGetId([
-            'user_id' => Auth::id(),
-            'payment_id' => $charge->payment_method,
-            'paying_amount' => $charge->amount,
-            'blnc_transection' => $charge->balance_transaction,
-            'stripe_order_id' => $charge->metadata->order_id,
-            'subtotal' => Cart::subtotal(),
-            'shipping' => $request->shipping,
-            'vat' => $request->vat,
-            'total' => $request->total,
-            'status' => 0,
-            'date' => date('d-m-y'),
-            'month' => date('F'),
-            'date' => date('Y'),
-        ]);
 
+        'ship_address' => $request->ship_address;
+            'ship_city' => $request->ship_city;
         // Insert Shipping Table
         Shipping::insert([
             'order_id' => $order_id,
