@@ -17,7 +17,7 @@ class CartController extends Controller
 {
     public function AddToCart($id)
     {
-        $product = Product::where('id', $id)->first();
+        $product = $id;
 
         if (!$product->discount_price) {
             Cart::add([
