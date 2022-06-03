@@ -1,5 +1,7 @@
 <?php
 
+namespace App;
+
 interface In_Table
 {
     const LEAVING_MESSAGE = "GOODBYE";
